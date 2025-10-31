@@ -40,7 +40,8 @@ export async function bakeAnimationWithCollision(model, sourceClip, collisionMan
     for (let i = 0; i <= totalFrames; i++) {
         const time = i * deltaTime;
         
-        // 1. Advance animation to the current frame
+        // 1. Reset skeleton and advance animation to the current frame
+        skeleton.pose(); // Reset to bind pose before setting time
         mixer.setTime(time);
         model.updateMatrixWorld(true);
 
